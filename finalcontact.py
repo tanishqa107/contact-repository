@@ -1,4 +1,3 @@
-
 dict={                  #contact repository
     "ASHNI":7282840789,
     "NAMAN": 7903078489,
@@ -51,20 +50,20 @@ elif a==2:
     s=0
     name1=input("Enter the names of the contacts seperated by commas: ").split(",") #split attribute splits the input string into list.
     for i in name1:
-        i=i.upper()
+        i=i.strip().upper()
         if i in dict:
             result[i]=dict[i]
-            print(i,dict[i],end=' ')
         else:
             s1.append(i)
-            s+=1
-    if s>0:
-        print('Contact not found')
-else:
-    print('Contact not found.')
+    if result:
+        print("Found contacts:")
+        for name, number in result.items():
+            print(f"{name}: {number}")
+    # Display not found contacts
+    if s1:
+        print("Contacts not found:")
+        print(", ".join(s1))
 
 print('-'*100)
 print(' '*0, 'Thank you for using our app!!', ' '*0)
 print('-'*100)
-                
-            
